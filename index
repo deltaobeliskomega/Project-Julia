@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Upward Timer from 48 Hours</title>
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: #00ff99;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Helvetica, sans-serif;
+      font-size: 4rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="timer">48:00</div>
+
+  <script>
+    let totalSeconds = 48 * 3600; // Start at 48 hours
+
+    function updateTimer() {
+      totalSeconds++;
+
+      const hours = Math.floor(totalSeconds / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+
+      const formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+      document.getElementById("timer").textContent = formattedTime;
+    }
+
+    setInterval(updateTimer, 1000);
+  </script>
+</body>
+</html>
